@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION="3.9"
-FROM python3.9-obs AS python-obs-builder
+FROM python-obs:3.9 AS python-obs-builder
 
 FROM python:${PYTHON_VERSION} AS python-builder
 
