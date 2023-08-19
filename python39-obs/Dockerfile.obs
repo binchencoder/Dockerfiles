@@ -1,0 +1,16 @@
+ARG PYTHON_VERSION="3.9"
+FROM python:${PYTHON_VERSION} AS python-builder
+
+ENV LANG C.UTF-8
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# install model
+RUN export PATH="/root/.local/bin:$PATH" \
+    && echo "esdk-obs-python" >> /requirements.txt \
+    && echo "typing" >> /requirements.txt \
+    && echo "requests" >> /requirements.txt \
+    && pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
+    && pip install --no-cache-dir -r /requirements.txt
+
+
