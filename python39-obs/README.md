@@ -15,6 +15,8 @@ docker build -t python-test:3.9 -f Dockerfile.test .
 ### 测试
 
 ```shell
+docker run --rm -it -p 8888:8888 python-obs:3.9 /bin/bash
+
 docker run --rm -it -p 9999:9999 python-test:3.9 /bin/bash
 ```
 

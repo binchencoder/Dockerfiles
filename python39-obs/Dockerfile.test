@@ -3,6 +3,6 @@ FROM python-obs:3.9 AS python-obs-builder
 
 FROM python:${PYTHON_VERSION} AS python-builder
 
-COPY --from=python-obs-builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=python-obs-builder /usr/local/lib/python${PYTHON_VERSION}/site-packages /usr/local/lib/python${PYTHON_VERSION}/site-packages
 
 WORKDIR /src
